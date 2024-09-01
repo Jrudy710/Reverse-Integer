@@ -10,16 +10,66 @@
 */
 
 
+import java.util.ArrayList;                                                                        // Imports the ArrayList Libraries
+
 public class ReverseInteger{                                                                       // Class Block
    public static void main(String[] args){                                                         // Method BLock
       
+                                                                                                   // VARIABLE DEFINITION
       int x = 213;                                                                                 // Defines x
       
-      while(x != 0){                                                                               // While Loop
-         
-         System.out.printf("Looking at the value of x: %d\n", x % 10);                             // Prints out to the user
-         
-         x /= 10;                                                                                  // Reduces the value of x
+      System.out.printf("Input: %d\t\tOutput: %d\n", x, reverse(x));                               // Prints out to the user
+   }
+   
+   public static int reverse(int theNum){                                                          // Method Block
+      
+                                                                                                   // VARIABLE DEFINITIONS
+      int reversedNum = 0;                                                                         // Defines reversedNum
+      
+      boolean negativeNum = false;                                                                 // Defines negativeNum
+      
+      ArrayList<Integer> myQueue = new ArrayList<Integer>();                                       // Initializes the arrayList myQueue
+      
+      if(theNum == 0){                                                                             // Sanity check
+         return theNum;                                                                            // If the number passed is 0
+      }      
+      
+      if(theNum < 0){                                                                              // If the number to be reversed is negative
+         negativeNum = true;                                                                       // Sets the value of negativeNum
+         theNum *= -1;                                                                             // Converts theNum to a positive number
       }
+      
+      while(theNum != 0){                                                                          // While Loop
+         
+         System.out.printf("Looking at the value of x: %d\n", theNum % 10);                      // Debug Statement
+
+         myQueue.add(theNum % 10);                                                                 // Adds to myQueue
+         
+         theNum /= 10;                                                                             // Reduces the value of theNum
+      }
+      
+      /*
+         * Remove any leading zero's at the front of myQueue
+         * Ex: If the input of theNum is 120 what's in myQueue before this is: 0 2 1
+            * After the removal in myQueue it should be 2 1
+      */
+      while(myQueue.get(0) == 0){                                                                  // While Loop
+         myQueue.remove(0);                                                                        // Removes the first item in myQueue
+      }
+      
+      if(myQueue.size() > 10){                                                                     // If the number is bigger than 32-bits
+         return 0;                                                                                 // Returns 0 to the user
+      }
+      
+      for(int num: myQueue){                                                                       // Foreach Loop
+         
+         reversedNum = (reversedNum + num) * 10;                                                   // Adds to the value of reversedNum
+      }
+      
+      if(negativeNum){                                                                             // If the value of theNum was originally negative
+         return reversedNum * -1;                                                                  // Returns the value to the user
+      }
+      return reversedNum;                                                                          // Returns the value of reversedNum
+      
    }
 }
