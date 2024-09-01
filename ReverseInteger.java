@@ -16,7 +16,7 @@ public class ReverseInteger{                                                    
    public static void main(String[] args){                                                         // Method BLock
       
                                                                                                    // VARIABLE DEFINITION
-      int x = 1534236469;                                                                          // Defines x
+      int x = -2147483648;                                                                          // Defines x
       
       System.out.printf("Input: %d\t\tOutput: %d\n", x, reverse(x));                               // Prints out to the user
    }
@@ -37,14 +37,20 @@ public class ReverseInteger{                                                    
       
       if(theNum < 0){                                                                              // If the number to be reversed is negative
          negativeNum = true;                                                                       // Sets the value of negativeNum
-         theNum *= -1;                                                                             // Converts theNum to a positive number
       }
       
       while(theNum != 0){                                                                          // While Loop
          
-         //System.out.printf("Looking at the value of x: %d\n", theNum % 10);                      // Debug Statement
-
-         myQueue.add(theNum % 10);                                                                 // Adds to myQueue
+         if(negativeNum){                                                                          // If the original number passed was negative
+            LCV = theNum % 10 * -1;                                                                // Sets the value of LCV
+         }                                                                 
+         else{                                                                                     // The original number was positive 
+            LCV = theNum % 10;                                                                     // Sets the value of LCV
+         }
+         
+         //System.out.printf("Looking at the value of x: %d\n", LCV);                                // Debug Statement
+         
+         myQueue.add(LCV);                                                                         // Adds to myQueue
          
          theNum /= 10;                                                                             // Reduces the value of theNum
       }
