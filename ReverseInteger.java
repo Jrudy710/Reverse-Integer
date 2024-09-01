@@ -16,7 +16,7 @@ public class ReverseInteger{                                                    
    public static void main(String[] args){                                                         // Method BLock
       
                                                                                                    // VARIABLE DEFINITION
-      int x = -123;                                                                                 // Defines x
+      int x = 1534236469;                                                                          // Defines x
       
       System.out.printf("Input: %d\t\tOutput: %d\n", x, reverse(x));                               // Prints out to the user
    }
@@ -58,9 +58,10 @@ public class ReverseInteger{                                                    
          myQueue.remove(0);                                                                        // Removes the first item in myQueue
       }
       
-      if(myQueue.size() > 10){                                                                     // If the number is bigger than 32-bits
+      if(myQueue.size() >= 10 && myQueue.get(0) > 2){                                              // If the number is bigger than 32-bits
          return 0;                                                                                 // Returns 0 to the user
       }
+      //System.out.printf("Size of myQueue is: %d\n", myQueue.get(0));                             // Debug statement
       
       for(LCV = 0; LCV < myQueue.size(); LCV++){                                                   // For Loop
                                                                                                    
