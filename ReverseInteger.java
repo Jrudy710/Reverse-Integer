@@ -16,7 +16,7 @@ public class ReverseInteger{                                                    
    public static void main(String[] args){                                                         // Method BLock
       
                                                                                                    // VARIABLE DEFINITION
-      int x = -2147483648;                                                                          // Defines x
+      int x = 1563847412;                                                                          // Defines x
       
       System.out.printf("Input: %d\t\tOutput: %d\n", x, reverse(x));                               // Prints out to the user
    }
@@ -77,9 +77,16 @@ public class ReverseInteger{                                                    
          reversedNum += (myQueue.get(LCV) * (int)(Math.pow(10, myQueue.size() - LCV - 1)));        // Adds to the value of reversedNum
       }
       
+      if(reversedNum < 0){                                                                         // The only way this happens is if the number goes out of bounds
+         return 0;                                                                                 // Sanity check to return 0
+      }
+      
       if(negativeNum){                                                                             // If the value of theNum was originally negative
          return reversedNum * -1;                                                                  // Returns the value to the user
       }
+      
+      
+      
       return reversedNum;                                                                          // Returns the value of reversedNum
       
    }
