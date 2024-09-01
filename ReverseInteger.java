@@ -10,8 +10,16 @@
 */
 
 
-public class ReverseInteger{
-   public static void main(String[] args){
+public class ReverseInteger{                                                                       // Class Block
+   public static void main(String[] args){                                                         // Method BLock
       
+      int x = 213;                                                                                 // Defines x
+      
+      while(x != 0){                                                                               // While Loop
+         
+         System.out.printf("Looking at the value of x: %d\n", x % 10);                             // Prints out to the user
+         
+         x /= 10;                                                                                  // Reduces the value of x
+      }
    }
 }
