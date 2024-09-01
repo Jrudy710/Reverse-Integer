@@ -16,7 +16,7 @@ public class ReverseInteger{                                                    
    public static void main(String[] args){                                                         // Method BLock
       
                                                                                                    // VARIABLE DEFINITION
-      int x = 213;                                                                                 // Defines x
+      int x = -123;                                                                                 // Defines x
       
       System.out.printf("Input: %d\t\tOutput: %d\n", x, reverse(x));                               // Prints out to the user
    }
@@ -25,6 +25,7 @@ public class ReverseInteger{                                                    
       
                                                                                                    // VARIABLE DEFINITIONS
       int reversedNum = 0;                                                                         // Defines reversedNum
+      int LCV = 0;                                                                                 // Defines LCV
       
       boolean negativeNum = false;                                                                 // Defines negativeNum
       
@@ -41,7 +42,7 @@ public class ReverseInteger{                                                    
       
       while(theNum != 0){                                                                          // While Loop
          
-         System.out.printf("Looking at the value of x: %d\n", theNum % 10);                      // Debug Statement
+         //System.out.printf("Looking at the value of x: %d\n", theNum % 10);                      // Debug Statement
 
          myQueue.add(theNum % 10);                                                                 // Adds to myQueue
          
@@ -61,9 +62,12 @@ public class ReverseInteger{                                                    
          return 0;                                                                                 // Returns 0 to the user
       }
       
-      for(int num: myQueue){                                                                       // Foreach Loop
+      for(LCV = 0; LCV < myQueue.size(); LCV++){                                                   // For Loop
+                                                                                                   
+                                                                                                   // Debug Statement
+         //System.out.printf("Current value being observed: %d\n", (myQueue.get(LCV) * (int)(Math.pow(10, myQueue.size() - LCV - 1))));               
          
-         reversedNum = (reversedNum + num) * 10;                                                   // Adds to the value of reversedNum
+         reversedNum += (myQueue.get(LCV) * (int)(Math.pow(10, myQueue.size() - LCV - 1)));        // Adds to the value of reversedNum
       }
       
       if(negativeNum){                                                                             // If the value of theNum was originally negative
